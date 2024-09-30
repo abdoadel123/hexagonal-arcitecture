@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { Alarm } from '../alarm';
 import { AlarmSeverity } from '../value-objects';
 
-@Injectable()
 export class AlarmFactory {
   create(name: string, severity: string) {
     const alarmId = randomUUID();

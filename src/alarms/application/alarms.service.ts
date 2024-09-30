@@ -5,10 +5,10 @@ import { AlarmRepository } from './ports/alarm.repository';
 
 @Injectable()
 export class AlarmsService {
-  constructor(
-    private readonly alarmRepository: AlarmRepository,
-    private readonly alarmFactory: AlarmFactory,
-  ) {}
+  private readonly alarmFactory: AlarmFactory;
+  constructor(private readonly alarmRepository: AlarmRepository) {
+    this.alarmFactory = new AlarmFactory();
+  }
   create(createAlarmDto: CreateAlarmCommand) {
     const alarmFactory = this.alarmFactory.create(
       createAlarmDto.name,
